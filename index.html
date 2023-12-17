@@ -1,10 +1,1606 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="utf-8">
+<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-rtl.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </head>
-<body>
 
+<body>
+		<div class="modal fade" id="delete_card">
+			<div class="modal-dialog">
+				<div class="modal-content" style="border-radius: 25px;">
+					<div class="modal-header">
+						<h5> پیام سیستم !! </h5>
+					</div>
+					<div class="modal-body">
+						<p> آیا از حذف کارت خود اطمینان کامل دارید ؟! </p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary ml-2 rounded-pill px-4"> بله </button>
+						<button type="button" class="btn btn-outline-primary ml-2 rounded-pill px-4" data-dismiss="modal"> خیر </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="total_card">
+			<div class="modal-dialog">
+				<div class="modal-content" style="border-radius: 25px;">
+					<div class="modal-header">
+						<h5> پیام سیستم !! </h5>
+					</div>
+					<div class="modal-body">
+						<p> موجودی حساب شما برابر است با :
+							<strong> 46.365.100 تومان </strong>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-primary ml-2 rounded-pill px-4" data-dismiss="modal"> بستن </button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="transfers_card">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content" style="border-radius: 25px;">
+					<div class="modal-header">
+						<h5> پیام سیستم !! </h5>
+					</div>
+					<div class="modal-body">
+						<p> 5 تراکنش اخیر شما :  </p>
+						<table class="table table-hover table-striped text-center table-responsive-md">
+							<thead>
+									<tr>
+										<th> ردیف : </th>
+										<th> مبلغ (تومان) : </th>
+										<th> نمره : </th>
+										<th> وضعیت تسویه : </th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr>
+										<td> 1 </td>
+										<td> 200.000 </td>
+										<td> 6.8 از 10 </td>
+										<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+										</tr>
+								<tr>
+										<td> 2 </td>
+										<td> 200.000 </td>
+										<td> 6.8 از 10 </td>
+										<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+										</tr>
+								<tr>
+										<td> 3 </td>
+										<td> 200.000 </td>
+										<td> 6.8 از 10 </td>
+										<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+										</tr>
+								<tr>
+										<td> 4 </td>
+										<td> 200.000 </td>
+										<td> 6.8 از 10 </td>
+										<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+								</tr>
+								<tr>
+										<td> 5 </td>
+										<td> 200.000 </td>
+										<td> 6.8 از 10 </td>
+										<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+										</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-outline-primary ml-2 rounded-pill px-4" data-dismiss="modal"> بستن </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="modal fade" id="viwe-cards">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content" style="border-radius: 25px;">
+				<div class="modal-header d-block text-center border-0">
+					<h5> گروه های ثبت شده </h5>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+																	<div class="col-12 d-lg-flex justify-content-between align-items-center finger-gr2">
+												<div class="card border-0 bg-warning flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+														<p class="mb-0">
+															<small> نام گروه : <strong>موسسه آموزشی زیکو </strong></small>
+														</p>
+													</div>
+												</div>
+												<div class="card border-0 bg-warning flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+														<p class="mb-0">
+															<small> شماره کارت : <strong>585983115032412 </strong></small>
+														</p>
+													</div>
+												</div>
+											</div>
+						<div class="col-12 col-lg-4 my-4 offset-lg-4">
+										<div class="input-group mr-lg-3 finger-gr finger-gr4 position-relative">
+											<input type="text" class="form-control" placeholder="جستجو  . . . ">
+											<a href="#" class="btn position-absolute shadow"> <i class="fa fa-search align-middle"></i> </a>
+										</div>
+						</div>
+					</div>
+					<div class="card border-0 rounded-pill bg-light">
+						<div class="card-body d-flex justify-content-between align-items-center py-3">
+							<p class="mb-0">
+								<small> نام : <strong>امیر دینی </strong></small>
+							</p>
+							<p class="mb-0">
+								<small> شناسه : <strong>123641  </strong></small>
+							</p>
+							<div class="custom-control custom-radio pl-2">
+								<input type="radio" id="cur3" name="cur3" class="custom-control-input custom-control-input2">
+								<label class="custom-control-label custom-control-label2" for="cur3"></label>
+							</div>
+						</div>
+					</div>
+					<div class="card border-0 rounded-pill bg-light">
+						<div class="card-body d-flex justify-content-between align-items-center py-3">
+							<p class="mb-0">
+								<small> نام: <strong>امیر دینی </strong></small>
+							</p>
+							<p class="mb-0">
+								<small> شناسه : <strong>123641</strong></small>
+							</p>
+							<div class="custom-control custom-radio pl-2">
+								<input type="radio" id="cur2" name="cur3" class="custom-control-input custom-control-input2">
+								<label class="custom-control-label custom-control-label2" for="cur2"></label>
+							</div>
+						</div>
+					</div>
+					<div class="card border-0 rounded-pill bg-light">
+						<div class="card-body d-flex justify-content-between align-items-center py-3">
+							<p class="mb-0">
+								<small> نام : <strong>امیر دینی </strong> </small>
+							</p>
+							<p class="mb-0">
+								<small> شناسه : <strong>123641  </strong> </small>
+							</p>
+							<div class="custom-control custom-radio pl-2">
+								<input type="radio" id="cur1" name="cur3" class="custom-control-input custom-control-input2">
+								<label class="custom-control-label custom-control-label2" for="cur1"></label>
+							</div>
+						</div>
+					</div>
+					<div class="card border-0 rounded-pill bg-light">
+						<div class="card-body d-flex justify-content-between align-items-center py-3">
+							<p class="mb-0">
+								<small> نام : <strong> امیر دینی </strong> </small>
+							</p>
+							<p class="mb-0">
+								<small> شناسه  : <strong> 123641  </strong> </small>
+							</p>
+							<div class="custom-control custom-radio pl-2">
+								<input type="radio" id="cur4" name="cur3" class="custom-control-input custom-control-input2">
+								<label class="custom-control-label custom-control-label2" for="cur4"></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 col-lg-2">
+				<div class="my-3">
+					<div class="card border-0 shadow right-side d-flex flex-column" style="height: 92vh;">
+						<div class="card-header bg-transparent border-0" id="headingone">
+							<h5 class="mb-0 d-block text-center"> 
+								<button class="btn btn-link">
+								ParsCart
+								</button>
+							</h5>
+						</div>
+						<div id="collapseone" class="collapse show"> 
+						<div class="card-body d-flex flex-column justify-content-between px-0">
+							<ul class="list-group">
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#home" class="active" data-toggle="tab"> <i class="fa fa-home ml-3 align-middle" style="font-size: 18px;"></i> خانه </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#tarakonesh" data-toggle="tab"> <i class="fa fa-list ml-3 align-middle" style="font-size: 18px;"></i> تراکنش </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#getter-code" data-toggle="tab"> <i class="fa fa-qrcode ml-3 align-middle" style="font-size: 18px;"></i> کد پذیرنده </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#card-bank" data-toggle="tab"> <i class="fa fa-credit-card ml-3 align-middle" style="font-size: 18px;"></i> کارت بانکی </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#karmozd" data-toggle="tab"> <i class="fa fa-money ml-3 align-middle" style="font-size: 18px;"></i> کارمزد </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#transfere" data-toggle="tab"> <i class="fa fa-refresh ml-3 align-middle" style="font-size: 18px;"></i> انتقال وجه </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#hp" data-toggle="tab"> <i class="fa fa-cubes ml-3 align-middle" style="font-size: 18px;"></i> راهنما </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#plugin" data-toggle="tab"> <i class="fa fa-pie-chart ml-3 align-middle" style="font-size: 18px;"></i> پلاگین </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#ehraz" data-toggle="tab"> <i class="fa fa-street-view ml-3 align-middle" style="font-size: 18px;"></i>  احراز هویت </a> 
+								</li>
+								<li class="list-group-item border-0 py-2 rounded-0 mb-3 pr-4"> 
+									<a href="#helper" data-toggle="tab"> <i class="fa fa-life-ring ml-3 align-middle" style="font-size: 18px;"></i> پشتیبانی </a> 
+								</li>
+							</ul>
+						</div>
+					</div>
+						<small class="d-block text-center text-white mt-auto mb-3"> Copy Right 2020 &copy;  </small>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-lg-10 mt-3">
+				<div class="card border-0 shadow left-side">
+					<div class="card-body d-lg-flex justify-content-between text-center align-items-center py-3">
+						<div>
+							<div class="card border-0 bg-light" style="border-radius: 35px 0 0 35px !important;">
+								<div class="card-body d-flex justify-content-between py-3 info">
+									<p class="mb-0" style="font-weight: 300 !important;font-size: 19px !important;">
+										<i class="fa fa-angle-left align-middle text-muted" style="font-size: 31px !important;opacity: 0.3; "></i> &nbsp; &nbsp;  روز جاری : ریال
+									</p>
+									<p class="mb-0 mx-4" style="font-weight: 300 !important;font-size: 19px !important;">
+										<i class="fa fa-angle-left align-middle text-muted" style="font-size: 31px !important;opacity: 0.3; "></i> &nbsp; &nbsp;  ماه جاری : ریال
+									</p>
+								</div>
+							</div>
+						</div>
+						<div>
+							<a href="#" class="dropdown" data-toggle="dropdown">
+								<img src="assets/img/businessman.png" class="img-fluid mt-3 mt-lg-0" alt="avatar">
+							</a>
+							<div class="dropdown-menu border-0 shadow dropdown-menu-left text-right dropdown-profile">
+								<a class="dropdown-item" href="#"> <i class="fa fa-pencil ml-2"></i> ویرایش اطلاعات </a>
+								<a class="dropdown-item" href="#"> <i class="fa fa-lock ml-2"></i> تغییر رمز عبور </a>
+								<a class="dropdown-item" href="#"> <i class="fa fa-window-close ml-2"></i> خروج </a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content">
+					<div class="tab-pane fade active show  mb-3" id="home">
+						<div class="alert my-4 custom-alert">
+							<p class="mb-0">
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.							</p>
+						</div>
+						<div class="card border-0 shadow chart">
+							<div class="card-header text-center bg-transparent border-0 mb-3">
+								<h5> فروش ماه های اخیر </h5>
+							</div>
+							<div class="card-body">
+								<ul class="nav pr-0 flex-column flex-lg-row text-center justify-content-around last-sale-btn">
+									<li class="nav-item">
+										<a href="#far" data-toggle="tab" class="btn px-4 py-2 active"> فروردین </a>
+										<a href="#ord" data-toggle="tab" class="btn px-4 py-2"> اردیبهشت </a>
+										<a href="#khr" data-toggle="tab" class="btn px-4 py-2"> خرداد </a>
+										<a href="#tir" data-toggle="tab" class="btn px-4 py-2"> تیر </a>
+										<a href="#mor" data-toggle="tab" class="btn px-4 py-2"> مرداد </a>
+										<a href="#shr" data-toggle="tab" class="btn px-4 py-2"> شهریور </a>
+										<a href="#mhr" data-toggle="tab" class="btn px-4 py-2"> مهر </a>
+										<a href="#abn" data-toggle="tab" class="btn px-4 py-2"> آبان </a>
+										<a href="#azr" data-toggle="tab" class="btn px-4 py-2"> آذر </a>
+										<a href="#dy" data-toggle="tab" class="btn px-4 py-2"> دی </a>
+										<a href="#bhm" data-toggle="tab" class="btn px-4 py-2"> بهمن </a>
+										<a href="#esf" data-toggle="tab" class="btn px-4 py-2"> اسفند </a>
+									</li>
+								</ul>
+								<div class="card border-0 mt-4">
+									<div class="card-body">
+										<div class="tab-content">
+											<div class="tab-pane active show fade" id="far">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="ord">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="khr">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="mor">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="tir">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="shr">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="mhr">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="abn">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="azr">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="dy">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="bhm">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab-pane show fade" id="esf">
+												<table class="table text-center border-0 table-borderless table-responsive-md table-trac">
+													<thead class="bg-light">
+														<tr>
+															<th> ردیف : </th>
+															<th> مبلغ (تومان) : </th>
+															<th> نمره : </th>
+															<th> وضعیت تسویه : </th>
+															<th> بهترین این ماه  : </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td> 1 </td>
+															<td> 200.000 </td>
+															<td> 6.8 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/medal (1).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 2 </td>
+															<td> 390.000 </td>
+															<td> 8.5 از 10 </td>
+															<td class="text-danger"><i class="fa fa-times"></i> تسویه نشده </td>
+															<td> <img src="assets/img/medal (2).png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+														<tr>
+															<td> 3 </td>
+															<td> 96.000 </td>
+															<td> 3.2 از 10 </td>
+															<td class="text-success"><i class="fa fa-check"></i> تسویه شده </td>
+															<td> <img src="assets/img/third.png" class="img-fluid d-block mx-auto" alt="medal2"> </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="tarakonesh">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> جستجو </h5>
+							</div>
+							<div class="card-body tarakoneshing pb-0">
+								<form>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> کارت مبدا </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> کارت مقصد </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> فاکتور </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> شناسه بانکی</span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<a href="#" class="btn btn-light btn-block py-2">
+												<i class="fa fa-times align-middle ml-2 text-danger" style="font-size: 19px;"></i> تراکنش ناموفق
+											</a>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<a href="#" class="btn btn-light btn-block py-2">
+												<i class="fa fa-check align-middle ml-2 text-success" style="font-size: 19px;"></i> تراکنش موفق
+											</a>
+										</div>
+									</div>
+								</form>
+								<div class="text-center mt-5 search-btn">
+									<a href="#" class="btn shadow-sm border-0"> جستجو </a>
+								</div>
+							</div>
+						</div>
+						<div class="card border-0 shadow mt-4" style="border-radius: 35px 0 0 35px;">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5 style="font-weight: 900;" class="mt-3"> تراکنش های یافت شده : </h5>
+							</div>
+							<div class="card-body tarakoneshing pb-0">
+								<table class="table text-center table-trac border-0 table-borderless table-responsive-md">
+									<thead>
+										<tr>
+											<th> مبلغ (تومان) </th>
+											<th>فاکتور </th>
+											<th>کارت مبدا </th>
+											<th>شناسه بانکی </th>
+											<th>کارت مقصد  </th>
+											<th> زمان تراکنش  </th>
+											<th>  وضعیت تراکنش </th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+										 	<td> 200.000 </td>
+										 	<td> 22151502016 </td>
+										 	<td> 440510890909909959 </td>
+										 	<td> 5909480999 </td>
+										 	<td> 501809909087515058 </td>
+										 	<td> 98/05/15 01:15 </td>
+										 	<td class="text-success"><i class="fa fa-check align-middle ml-2"></i> موفق </td>
+										</tr>
+										<tr>
+										 	<td> 200.000 </td>
+										 	<td> 22151502016 </td>
+										 	<td> 440510890909909959 </td>
+										 	<td> 5909480999 </td>
+										 	<td> 501809909087515058 </td>
+										 	<td> 98/05/15 01:15 </td>
+										 	<td class="text-danger"><i class="fa fa-times align-middle ml-2"></i> ناموفق </td>
+										</tr>
+										<tr>
+										 	<td> 200.000 </td>
+										 	<td> 22151502016 </td>
+										 	<td> 440510890909909959 </td>
+										 	<td> 5909480999 </td>
+										 	<td> 501809909087515058 </td>
+										 	<td> 98/05/15 01:15 </td>
+										 	<td class="text-success"><i class="fa fa-check align-middle ml-2"></i> موفق </td>
+										</tr>
+										<tr>
+										 	<td> 200.000 </td>
+										 	<td> 22151502016 </td>
+										 	<td> 440510890909909959 </td>
+										 	<td> 5909480999 </td>
+										 	<td> 501809909087515058 </td>
+										 	<td> 98/05/15 01:15 </td>
+										 	<td class="text-success"><i class="fa fa-check align-middle ml-2"></i> موفق </td>
+										</tr>
+										<tr>
+										 	<td> 200.000 </td>
+										 	<td> 22151502016 </td>
+										 	<td> 440510890909909959 </td>
+										 	<td> 5909480999 </td>
+										 	<td> 501809909087515058 </td>
+										 	<td> 98/05/15 01:15 </td>
+										 	<td class="text-danger"><i class="fa fa-times align-middle ml-2"></i> ناموفق </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="plugin">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px;">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> پلاگین </h5>
+							</div>
+							<div class="card-body plugin-box">
+								<p> راهنمای استفاده از اسکریپت : </p>
+								<p>
+									برای اتصال به سایت ، شما باید از اسکریپت آسان پرداخت بر پایه ی php یا asp یا node.js استفاده کنید . این پلاگین ها طراحی شده و شما میتوانید بر حسب نیاز خود هرکدام را از باکس ها زیر دانلود کنید !! لازم به ذکر است که شما باید در قسمت کد پذیرنده ، کد پذیرنده ی خود را که از بخش سمت راست منو قابل دسترس هست تهیه کنید .
+								</p>
+								<p><i class="fa fa-bell-o ml-3 align-middle"></i> کد پذیرنده شما : api_123635 است و کارت آیدی شما : card_id856321 است </p>
+								<div class="bg-light p-3 plugin-box">
+									<div class="card border-0 mb-3">
+										<div class="card-body">
+											<p class="mb-0 text-center"> اسکریپت آسان پرداخت </p>
+										</div>
+									</div>
+									<div class="d-lg-flex justify-content-between">
+										<div class="card mb-0 border-0 mb-lg-0 flex-grow-1 mx-3" style="cursor: pointer;">
+											<div class="card-body justify-content-center align-items-center d-flex">
+												<span class="ml-2"> PHP </span>
+												<img src="assets/img/zip.png" class="img-fluid" alt="dlzip">
+											</div>
+										</div>
+										<div class="card mb-0 border-0 mb-lg-0 flex-grow-1 mx-3"  style="cursor: pointer;">
+											<div class="card-body justify-content-center align-items-center d-flex">
+												<span class="ml-2"> Asp.Net </span>
+												<img src="assets/img/zip.png" class="img-fluid" alt="dlzip">
+											</div>
+										</div>
+										<div class="card mb-0 border-0 mb-lg-0 flex-grow-1 mx-3"  style="cursor: pointer;">
+											<div class="card-body justify-content-center align-items-center d-flex">
+												<span class="ml-2"> Node.Js </span>
+												<img src="assets/img/zip.png" class="img-fluid" alt="dlzip">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="helper">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px;">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> پشتیبانی </h5>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-12 col-lg-6 offset-lg-3">
+										<form class="helper">
+											<div class="form-group">
+												<label> عنوان تیکت : </label>
+												<input type="text" class="form-control">
+											</div>
+											<div class="form-group">
+												<label> اهمیت تیکت : (زیاد ، متوسط ، کم ) </label>
+												<input type="text" class="form-control">
+											</div>
+											<div class="form-group">
+												<label> شماره سفارش : </label>
+												<input type="text" class="form-control">
+											</div>
+											<div class="form-group">
+												<label> شرح مشکل : </label>
+												<textarea name="" id="" cols="30" rows="10" class="d-block w-100" placeholder="شرح مشکل خود را به صورت کامل بنویسید "></textarea>
+											</div>
+											<div class="form-group d-flex justify-content-center mt-5">
+												<a href="#" class="btn px-4"> ارسال </a>
+												<a href="#" class="btn mx-3 px-4"> پاک کردن </a>
+												<a href="#" class="btn px-4"> انصراف </a>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="card-bank">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> ثبت کارت </h5>
+							</div>
+							<div class="card-body tarakoneshing pb-0">
+								<form>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span>نام بانک  </span>
+													</div>
+												</div>
+												<select class="custom-select">
+													<option selected> انتخاب کنید . . . . </option>
+													<option> تجارت </option>
+													<option> رفاه </option>
+													<option> کشاورزی </option>
+													<option> شهر </option>
+													<option> آینده </option>
+													<option> ملی </option>
+													<option> ملت </option>
+													<option> صادرات </option>
+													<option> پاسارگاد </option>
+													<option> انصار </option>
+													<option> پارسیان </option>
+												</select>
+											</div>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> نام کامل صاحب حساب </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> شماره کارت </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> شماره حساب  </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span>شماره شبا  </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> سرور درگاه شما   </span>
+													</div>
+												</div>
+												<select class="custom-select">
+													<option> انتخاب کنید . . .  </option>
+													<option> درگاه آپ </option>
+													<option> درگاه زرین پال </option>
+													<option> درگاه پارس کارت </option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 col-lg-6 form-group">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span>کد دسترسی خصوصی :  </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="text-center mt-5 search-btn">
+									<a href="#" class="btn shadow-sm border-0"> ثبت </a>
+								</div>
+							</div>
+						</div>
+						<div class="card mt-3 border-0 shadow" style="border-radius: 35px 0 0 35px;">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> کارت های ثبت شده </h5>
+							</div>
+							<div class="card-body tarakoneshing card-bank2 pb-0">
+								<div class="row justify-content-center">
+									<div class="form-group col-12 col-lg-3">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text bg-light px-4 rounded-pill border-0">
+													<span> نمایش </span>
+												</div>
+											</div>
+											<select class="custom-select bg-light">
+												<option selected> کارت های غیرفعال </option>
+												<option> کارت های فعال </option>
+												<option> سایر </option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="card border-0 bg-light mb-5" style="border-radius: 35px 0 35px 0;">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12 col-lg-8">
+												<div class="d-lg-flex justify-content-between">
+													<div class="card border-0 rounded-pill bg-white flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+														<div class="card-body text-center py-4">
+															<p class="mb-0"> <span> نام : </span> &nbsp;  <strong> امیر دینی </strong> </p>
+														</div>
+													</div>
+													<div class="card border-0 rounded-pill bg-white flex-grow-1">
+														<div class="card-body text-center py-4">
+															<p class="mb-0"> <span> نام بانک : </span> &nbsp;  <strong> تجارت </strong> </p>
+														</div>
+													</div>
+												</div>
+												<div class="d-lg-flex justify-content-between mt-3">
+													<div class="card border-0 rounded-pill bg-white flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+														<div class="card-body text-center py-4">
+															<p class="mb-0"> <span> شماره کارت : </span> &nbsp; <strong> 5859831152639641  </strong> </p>
+														</div>
+													</div>
+													<div class="card border-0 rounded-pill bg-white flex-grow-1">
+														<div class="card-body text-center py-4">
+															<p class="mb-0"> <span> Api_Card_Id : </span> &nbsp;  <strong> 1336_tej </strong> </p>
+														</div>
+													</div>
+												</div>
+													<div class="card border-0 rounded-pill bg-white flex-grow-1 my-3">
+														<div class="card-body text-center py-4">
+															<p class="mb-0"> <span> دکمه پرداخت : </span> &nbsp; <strong class="text-danger"> cvw]pcqhqueblnvrucqyhzqazuvjvrwbu  </strong> </p>
+														</div>
+													</div>
+											</div>
+											<div class="col-12 col-lg-4 border-lg-right left-card-bank">
+												<div class="d-flex justify-content-between align-items-center mb-3">
+													<p class="mb-0"> فعال </p>
+													<div class="custom-control custom-switch custom-switch1 pl-4">
+														<input type="checkbox" class="custom-control-input" id="custom-Switch1">
+														<label class="custom-control-label" for="custom-Switch1"></label>
+													</div>
+												</div>
+												<div class="d-flex justify-content-between align-items-center mb-3">
+													<p class="mb-0"> وضعیت کارت </p>
+													<p class="mb-0 text-danger"> مسدود </p>
+												</div>
+												<div class="d-flex justify-content-between align-items-center mb-3">
+													<p class="mb-0"> حذف کارت </p>
+													<a href="#delete_card" data-toggle="modal">
+													<i class="mb-0 text-muted fa fa-angle-left align-middle" style="font-size: 24px;">  </i>
+													</a>
+												</div>
+												<div class="d-flex justify-content-between align-items-center mb-3">
+													<p class="mb-0"> نمایش موجودی کارت  </p>
+													<a href="#total_card" data-toggle="modal">
+													<i class="mb-0 text-muted fa fa-angle-left align-middle" style="font-size: 24px;">  </i>
+													</a>
+												</div>
+												<div class="d-flex justify-content-between align-items-center mb-3">
+													<p class="mb-0"> نمایش واریزی های کارت  </p>
+													<a href="#transfers_card" data-toggle="modal">
+													<i class="mb-0 text-muted fa fa-angle-left align-middle" style="font-size: 24px;">  </i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="hp">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> راهنما </h5>
+							</div>
+							<div class="card-body tarakoneshing card-bank pb-0">
+								<p class="text-justify para1">
+									لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+								</p>
+								<div>
+									<img src="assets/img/Layer 2.png" class="img-fluid" alt="hp1">
+									<div class="card-header border-0 bg-transparent text-center tarakonesh-head my-4">
+										<h5> استفاده از سیستم </h5>
+									</div>
+									<div>
+										<img src="assets/img/Layer 3.png" class="img-fluid" alt="hp2">
+									</div>
+									<div class="para2">
+										<p class="mt-4"> برای حمایت مالی از ما لطفا مبلغ را وارد کرده و دکمه "پرداخت" را بزنید ! </p>
+										<div class="row justify-content-center">
+											<div class="form-group col-12 col-lg-5">
+												<div class="input-group mr-lg-3 position-relative finger-gr">
+													<input type="text" class="form-control" placeholder="مبلغ دلخواه را وارد کنید . . . ">
+													<a href="#" class="btn shadow position-absolute"> پرداخت </a>
+												</div>
+											</div>
+										</div>
+										<p> بانک های تحت پوشش سامانه درگاه پرداخت پارس کارت در لیست زیر موجود است : </p>
+									</div>
+									<div>
+										<img src="assets/img/Layer 4.png" class="img-fluid" alt="hp3">
+									</div>
+									<div class="para1">
+										<p class="text-justify mt-4">
+										لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+									</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show mb-3" id="karmozd">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> کارمزد </h5>
+							</div>
+							<div class="card-body tarakoneshing cards-bank pb-0">
+								<div class="card border-0 mb-3 bg-light" style="border-radius: 35px 0 0 35px;">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12 col-lg-9">
+												<div class="d-lg-flex justify-content-between align-items-center">
+													<div class="card border-0 flex-grow-1 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> توکن : <strong> 24 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> شناسه کاربر : <strong> 77 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> نام کاربر : <strong> Amir Dini </strong> </small>
+															</p>
+														</div>
+													</div>
+												</div>
+													<div class="card border-0 flex-grow-1 mt-3 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																 <small style="font-size: 17px;font-weight: 400;"> صورتحساب در تاریخ 98/05/12 به مبلغ : 113.639 تومان ایجاد شد </small> 
+															</p>
+														</div>
+													</div>
+												<div class="d-lg-flex justify-content-between mt-3 align-items-center">
+													<div class="card border-0 flex-grow-1 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> توکن : <strong> 24 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> شناسه کاربر : <strong> 77 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> نام کاربر : <strong> Amir Dini </strong> </small>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12 col-lg-3 d-flex">
+												<div class="card border-0 flex-grow-1 earn" style="border-radius: 20px;">
+													<div class="card-body py-3 d-flex flex-column justify-content-between align-items-center">
+														<p></p>
+														<p class="mb-0 text-danger mb-2 mb-lg-0" style="font-weight: 900;"> پرداخت نشده </p>
+														<div class="d-block w-100">
+															<a href="#" class="btn btn-block text-center w-100 shadow py-2">
+																پرداخت کنید 
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card border-0 mb-3 bg-light" style="border-radius: 35px 0 0 35px;">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12 col-lg-9">
+												<div class="d-lg-flex justify-content-between align-items-center">
+													<div class="card border-0 flex-grow-1 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> توکن : <strong> 24 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> شناسه کاربر : <strong> 77 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> نام کاربر : <strong> Amir Dini </strong> </small>
+															</p>
+														</div>
+													</div>
+												</div>
+													<div class="card border-0 flex-grow-1 mt-3 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																 <small style="font-size: 17px;font-weight: 400;"> صورتحساب در تاریخ 98/05/12 به مبلغ : 113.639 تومان ایجاد شد </small> 
+															</p>
+														</div>
+													</div>
+												<div class="d-lg-flex justify-content-between mt-3 align-items-center">
+													<div class="card border-0 flex-grow-1 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> توکن : <strong> 24 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> شناسه کاربر : <strong> 77 </strong> </small>
+															</p>
+														</div>
+													</div>
+													<div class="card border-0 flex-grow-1 mx-lg-2 mb-2 mb-lg-0" style="border-radius: 20px;">
+														<div class="card-body py-3 text-center">
+															<p class="mb-0">
+																<small> نام کاربر : <strong> Amir Dini </strong> </small>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-12 col-lg-3 d-flex">
+												<div class="card border-0 flex-grow-1 earn" style="border-radius: 20px;">
+													<div class="card-body py-3 d-flex flex-column justify-content-between align-items-center">
+														<p class=" mt-3 text-success" style="font-weight: 900;"> پرداخت شده </p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div  class="tab-pane fade show mb-3" id="ehraz">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> ثبت گروه </h5>
+							</div>
+							<div class="card-body tarakoneshing cards-bank pb-0">
+								<form>
+									<div class="row">
+											<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> نام گروه : </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> شماره کارت : </span>
+													</div>
+												</div>
+												<select class="custom-select">
+													<option selected> انتخاب کنید . . .  </option>
+													<option> تجارت </option>
+													<option> رفاه </option>
+													<option> صادرات </option>
+													<option> پارسیان </option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="text-center mt-5 search-btn">
+									<a href="#" class="btn py-2 shadow-sm border-0"> ثبت </a>
+								</div>
+							</div>
+						</div>
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> گروه های ثبت شده </h5>
+							</div>
+							<div class="card-body cards-bank2 tarakoneshing">
+								<div class="row justify-content-center">
+									<div class="form-group col-12 col-lg-6 d-lg-flex justify-content-between">
+										<div class="input-group ml-3 mb-2 mb-lg-0">
+											<div class="input-group-prepend">
+												<div class="input-group-text bg-light px-4 border-0" style="border-radius: 10px;">
+													<span> نمایش بر اساس  </span>
+												</div>
+											</div>
+											<select class="custom-select bg-light border-0">
+												<option selected> کارت </option>
+												<option> حساب </option>
+												<option> شبا </option>
+											</select>
+										</div>
+										<div class="input-group mr-lg-3 finger-gr position-relative">
+											<input type="text" class="form-control" placeholder="جستجو  . . . ">
+											<a href="#" class="btn position-absolute shadow"> <i class="fa fa-search align-middle"></i> </a>
+										</div>
+									</div>
+								</div>
+								<div class="card border-0 bg-light mt-4">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-12 d-lg-flex justify-content-between align-items-center finger-gr2">
+												<div class="card border-0 bg-warning flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+														<p class="mb-0">
+															<small> نام گروه : <strong> موسسه آموزشی زیکو </strong> </small>
+														</p>
+													</div>
+												</div>
+												<div class="card border-0 bg-warning flex-grow-1 ml-lg-2 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+														<p class="mb-0">
+															<small> شماره کارت : <strong> 585983115032412 </strong> </small>
+														</p>
+													</div>
+												</div>
+												<div class="card border-0 ml-lg-2 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+															<a href="#"> <i class="fa fa-edit align-middle"></i> </a>
+													</div>
+												</div>
+												<div class="card border-0 mb-2 mb-lg-0">
+													<div class="card-body text-center py-3">
+															<a href="#"> <i class="align-middle fa fa-trash-o"></i> </a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card border-0 finger-gr3 mt-3">
+											<div class="card-body py-3 d-lg-flex justify-content-between align-items-center text-center">
+												<p style="font-size: 24px;">
+													<small style="font-weight: 100;"> گروه های ثبت شده تا کنون : <strong style="font-weight: 800;"> 198 </strong> </small>
+												</p>
+												<a href="#viwe-cards" data-toggle="modal" class="btn shadow border-0 py-2"> مشاهده گروه ها </a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div  class="tab-pane fade show mb-3" id="getter-code">
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div class="card-header border-0 bg-transparent text-center tarakonesh-head">
+								<h5> ثبت برای دریافت کد پذیرنده  </h5>
+							</div>
+							<div class="card-body tarakoneshing card-bank pb-0">
+								<form>
+									<div class="row">
+										<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> آدرس سایت </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> آی پی سایت </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> عنوان سایت </span>
+													</div>
+												</div>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="form-group col-12 col-lg-6">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text bg-transparent px-4">
+														<span> موضوع فعالیت سایت </span>
+													</div>
+												</div>
+												<select class="custom-select">
+													<option selected> انتخاب کنید . . .  </option>
+													<option> فروشگاهی  </option>
+													<option>  خدماتی </option>
+													<option> نرم افزار و بازی  </option>
+													<option>  صنایع دستی </option>
+													<option>  آموزش آنلاین </option>
+													<option>  فروشگاه فرهنگی خاص </option>
+													<option>  بلاگ اعضای ویژه </option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="text-center mt-5 search-btn">
+									<a href="#" class="btn py-2 shadow-sm border-0"> ثبت </a>
+								</div>
+							</div>
+						</div>
+						<div class="card border-0 shadow mt-3" style="border-radius: 35px 0 0 35px">
+							<div  class="card-body tarakoneshing card-bank pb-0">
+								<div class="card border-0 bg-light mb-3" style="border-radius: 15px;">
+									<div class="card-body d-lg-flex justify-content-between pb-2">
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> آدرس سایت : <strong style="font-size: 17px;"> AmirDini.com </strong> </small>
+												</p>
+											</div>
+										</div>
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> آی پی سایت : <strong style="font-size: 17px;"> 192.168.1.7 </strong> </small>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-body d-lg-flex justify-content-between pb-2">
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> API_Token : &nbsp; &nbsp; <strong style="font-size: 17px;"> pjrwninviwrhdipowqvbmnbmvbklbnnq </strong> </small>
+												</p>
+											</div>
+										</div>
+										<div class="card border-0 flex-grow-2 px-5 text-center" style="border-radius: 15px;">
+											<div class="card-body py-3">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> وضعیت : <strong class="text-success" style="font-size: 17px;"> <i class="fa fa-check"></i> فعال </strong> </small>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card border-0 bg-light mb-3" style="border-radius: 15px;">
+									<div class="card-body d-lg-flex justify-content-between pb-2">
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> آدرس سایت : <strong style="font-size: 17px;"> AmirDini.com </strong> </small>
+												</p>
+											</div>
+										</div>
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> آی پی سایت : <strong style="font-size: 17px;"> 192.168.1.7 </strong> </small>
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="card-body d-lg-flex justify-content-between pb-2">
+										<div class="card border-0 flex-grow-1 ml-lg-2 mb-2 mb-lg-0 text-center" style="border-radius: 15px;">
+											<div class="card-body">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> API_Token : &nbsp; &nbsp; <strong style="font-size: 17px;"> pjrwninviwrhdipowqvbmnbmvbklbnnq </strong> </small>
+												</p>
+											</div>
+										</div>
+										<div class="card border-0 flex-grow-2 px-5 text-center" style="border-radius: 15px;">
+											<div class="card-body py-3">
+												<p class="mb-0"> 
+													<small style="font-size: 17px;font-weight: lighter;"> وضعیت : <strong class="text-danger" style="font-size: 17px;"> <i class="fa fa-times"></i> غیرفعال </strong> </small>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
